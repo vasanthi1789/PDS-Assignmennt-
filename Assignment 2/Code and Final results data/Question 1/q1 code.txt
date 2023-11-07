@@ -1,0 +1,20 @@
+question 1. a) Look for the missing values in all the columns and either impute them (replace with mean,
+median, or mode) or drop them. Justify your action for this task.
+
+ANS: When we observe the data , the column New_Price contains mostly missing data, and This data is non-random and could introduce bias. It is crucial to carefully assess and address this issue. Non-random missing data often occurs when certain values are systematically missing, and this can introduce bias into analysis. Addressing non-random missing data is a complex and context-specific task. Analyzing the patterns in the missing data by determining whether any particular traits or circumstances are connected to the missing numbers. So, I've dropped the column to ensure the integrity of results
+
+
+
+
+
+Code.
+
+# firsrt we need to import pandas to read the data.
+import pandas as pd
+df = pd.read_csv("/content/train.csv")
+
+#we are examinig the data whether we have ant missing data.
+missing_values = df.isnull().sum()
+
+vs = df.dropna()
+vs = df.drop(columns=['New_Price'])
